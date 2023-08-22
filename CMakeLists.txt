@@ -36,9 +36,16 @@ endif()
 # Add source files to this project's executable.
 add_executable(tui_client "src/main.cpp")
 
+# Add subdir glfw
+add_subdirectory(external/glfw)
+
+target_include_directories(tui_client PUBLIC external/glfw/include)
 
 # Link the debug and release libraries to the project
-target_link_libraries( tui_client ${VULKAN_LIB_LIST} )
+target_link_libraries( tui_client 
+	PUBLIC ${VULKAN_LIB_LIST} 
+	PUBLIC glfw
+)
 
 # Setting compiler's C++ version
 if (CMAKE_VERSION VERSION_GREATER 3.12)

@@ -20,7 +20,9 @@ target_link_libraries(
 )
 
 target_include_directories(gtests
-        PRIVATE "${CMAKE_SOURCE_DIR}/include")
+        PRIVATE "${CMAKE_SOURCE_DIR}/include"
+        PUBLIC external/glfw/include
+)
 
 # Setting compiler's C++ version
 if (CMAKE_VERSION VERSION_GREATER 3.12)
