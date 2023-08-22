@@ -1,6 +1,8 @@
 ﻿#define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
 
+// Testing purposes
+#include <vulkan/vulkan.hpp>
 
 #include <iostream>
 
