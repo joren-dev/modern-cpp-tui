@@ -11,6 +11,7 @@ endif()
 
 project ("modern-cpp-tui")
 
+# TODO: Fix this, it should just work with find_package() rather than manually doing it.
 message(STATUS "Attempting to locate Vulkan SDK using manual path......")
 set(VULKAN_SDK "C:/VulkanSDK")
 set(VULKAN_VERSION "1.3.261.0")
@@ -36,10 +37,14 @@ endif()
 # Add source files to this project's executable.
 add_executable(tui_client "src/main.cpp" "include/test.hpp")
 
-# Add subdir glfw
+# Add subdir glfw & glm
 add_subdirectory(external/glfw)
+add_subdirectory(external/glm)
 
-target_include_directories(tui_client PUBLIC external/glfw/include)
+target_include_directories(tui_client 
+	PUBLIC external/glfw/include
+	PUBLIC external/glm
+)
 
 # Link the debug and release libraries to the project
 target_link_libraries( tui_client 
