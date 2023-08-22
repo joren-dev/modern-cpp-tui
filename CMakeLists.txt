@@ -34,7 +34,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 endif()
 
 # Add source files to this project's executable.
-add_executable(tui_client "src/main.cpp")
+add_executable(tui_client "src/main.cpp" "include/test.hpp")
 
 # Add subdir glfw
 add_subdirectory(external/glfw)

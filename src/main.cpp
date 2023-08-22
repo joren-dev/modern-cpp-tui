@@ -3,11 +3,14 @@
 
 // Testing purposes
 #include <vulkan/vulkan.hpp>
+#include "test.hpp"
 
 #include <iostream>
 
 int main( )
 {
+    std::cout << test( );
+
     glfwInit( );
 
     glfwWindowHint( GLFW_CLIENT_API, GLFW_NO_API );
