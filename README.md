@@ -1,7 +1,7 @@
 # Modern cpp TUI
-Creaters and manages order list(s) for Houtmaatje.
+A Text based User Interface that will contain a collection of tools and utility used by the creators. It will be written in modern C++ and be cross-platform.
 
-## Prerequisites
+## Prerequisites (to be adjusted)
 1. Install [Visual studio 2022](https://visualstudio.microsoft.com/vs/). During installation/in VS installer make sure to select:
 	- Install C++, 
     - CMake support,
