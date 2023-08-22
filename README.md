@@ -2,12 +2,14 @@
 Creaters and manages order list(s) for Houtmaatje.
 
 ## Prerequisites
-1. Install [Visual studio 2022](https://visualstudio.microsoft.com/vs/). During installation make sure to:
+1. Install [Visual studio 2022](https://visualstudio.microsoft.com/vs/). During installation/in VS installer make sure to select:
 	- Install C++, 
     - CMake support,
     - Clang Compiler
 
-2. Git clone this project using: `git clone https://github.com/joren-dev/modern-cpp-tui.git`
+2. Install [Vulkan SDK](https://vulkan.lunarg.com/), make sure to download the version matching `VULKAN_VERSION` in the `CMakeLists.txt` or adjust the variable to whatever version you use.
+
+3. Git clone this project using: `git clone https://github.com/joren-dev/modern-cpp-tui.git`
 
 
 ## Technical details
