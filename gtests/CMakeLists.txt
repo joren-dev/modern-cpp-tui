@@ -24,7 +24,6 @@ target_link_libraries(
 target_include_directories(
   gtests
   PRIVATE "${CMAKE_SOURCE_DIR}/include"
-  PUBLIC external/glfw/include
 )
 
 # Set the C++ standard to C++23
