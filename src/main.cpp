@@ -7,14 +7,12 @@
 #include <glm/mat4x4.hpp>
 
 // Testing purposes
-#include "test.hpp"
+#include "core/rendering/vulkan_renderer.hpp"
 
 #include <iostream>
 
 int main( )
 {
-    std::cout << test( );
-
     glfwInit( );
 
     glfwWindowHint( GLFW_CLIENT_API, GLFW_NO_API );
