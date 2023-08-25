@@ -40,15 +40,13 @@ void handler::CommandHandler::check_aliases( const std::vector< std::set< std::s
     // Use a set to check for duplicate aliases across all sets
     std::unordered_set< std::string > unique_aliases;
 
+    auto insert_alias = [ &unique_aliases ]( const std::string& alias ) {
+        if ( !unique_aliases.insert( alias ).second )
+            std::cout << "Duplicate alias found: " << alias << '\n';
+    };
+
     for ( const auto& aliases_set : all_aliases )
-    {
-        std::ranges::for_each( aliases_set, [ &unique_aliases ]( const std::string& alias ) {
-            if ( !unique_aliases.insert( alias ).second )
-            {
-                std::cout << "Duplicate alias found: " << alias << '\n';
-            }
-        } );
-    }
+        std::ranges::for_each( aliases_set, insert_alias);
 }
 
 void handler::CommandHandler::invoke_command( const std::string& command )

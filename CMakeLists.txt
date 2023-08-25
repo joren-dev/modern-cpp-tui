@@ -35,7 +35,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 endif()
 
 # Add source files to this project's executable.
-add_executable(tui_client "src/main.cpp" "src/handler/input_handler.cpp" "src/handler/command_handler.cpp" "src/core/commands/base_command.cpp" "src/core/commands/help_command.cpp")
+add_executable(tui_client "src/main.cpp" "src/handler/input_handler.cpp" "src/handler/command_handler.cpp" "src/core/commands/base_command.cpp" "src/core/commands/help_command.cpp" "include/core/configuration/tui_config.hpp")
 
 # Disable GLFW options
 option(GLFW_BUILD_EXAMPLES OFF)
@@ -49,6 +49,7 @@ add_subdirectory(external/glm)
 target_include_directories(tui_client 
 	PUBLIC external/glfw/include
 	PUBLIC external/glm
+	PUBLIC external/nlohmann
 )
 
 # Link the debug and release libraries to the project
