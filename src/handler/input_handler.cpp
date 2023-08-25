@@ -5,6 +5,11 @@
 
 #include "utils/string_utility.hpp"
 
+handler::InputHandler::InputHandler( )
+    : m_window( nullptr ), m_key_states { { GLFW_KEY_ENTER, GLFW_RELEASE }, { GLFW_KEY_BACKSPACE, GLFW_RELEASE } }
+{
+}
+
 void handler::InputHandler::initialize_handler( GLFWwindow* const window )
 {
     m_window = window;
@@ -30,7 +35,7 @@ void handler::InputHandler::poll_instructions( )
             {
                 // Call a function to process the user input
                 std::cout << "sent: " << m_user_input << " to process_input\n";
-                InputHandler::get_instance( ).process_input( m_user_input );
+                InputHandler::get( ).process_input( m_user_input );
 
                 // Clear the input buffer
                 m_user_input.clear( );

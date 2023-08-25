@@ -13,11 +13,11 @@ namespace handler
       public:
         BaseHandler( ) = default;
 
-        BaseHandler( const BaseHandler& ) = default;
-        BaseHandler& operator=( const BaseHandler& ) = default;
+        BaseHandler( const BaseHandler& ) = delete;
+        BaseHandler& operator=( const BaseHandler& ) = delete;
 
-        BaseHandler( BaseHandler&& other ) noexcept = default;
-        BaseHandler& operator=( BaseHandler&& other ) noexcept = default;
+        BaseHandler( BaseHandler&& other ) noexcept = delete;
+        BaseHandler& operator=( BaseHandler&& other ) noexcept = delete;
 
         virtual void initialize_handler( [[maybe_unused]] GLFWwindow* const window ) = 0;
 

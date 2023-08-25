@@ -9,27 +9,24 @@
 
 #include <GLFW/glfw3.h>
 
-#include "command_handler.hpp"
 #include "base_handler.hpp"
+#include "command_handler.hpp"
 
 namespace handler
 {
 
     class InputHandler : public BaseHandler
     {
-      public:
-        InputHandler( )
-            : m_window( nullptr ), m_key_states { { GLFW_KEY_ENTER, GLFW_RELEASE }, { GLFW_KEY_BACKSPACE, GLFW_RELEASE } }
-        {
-        }
+      private:
+        InputHandler( );
 
-        static InputHandler& get_instance( )
+      public:
+        [[nodiscard]] static InputHandler& get( ) noexcept 
         {
-            static InputHandler instance;
+            static handler::InputHandler instance;
             return instance;
         }
 
-        
         static void keystroke_callable( GLFWwindow* window, unsigned int key );
 
         void poll_instructions( );

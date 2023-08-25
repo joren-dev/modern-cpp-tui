@@ -22,7 +22,7 @@ namespace handler
 
         void invoke_command( const std::string& command );
 
-        std::vector< std::unique_ptr< BaseCommand > > m_commands;
+        std::vector< std::unique_ptr< commands::BaseCommand > > m_commands;
     };
 
 } // namespace handler

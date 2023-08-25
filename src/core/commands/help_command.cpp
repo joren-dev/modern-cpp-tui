@@ -1,8 +1,8 @@
 #include "..\..\..\include\core\commands\help_command.hpp"
 
-inline commands::HelpCommand::HelpCommand( const std::string& main_alias ) : BaseCommand( main_alias ) {}
+commands::HelpCommand::HelpCommand( const std::string& main_alias ) : BaseCommand( main_alias ) {}
 
-inline void commands::HelpCommand::execute( )
+void commands::HelpCommand::execute( )
 {
     std::cout << "Executed help command...\n";
 }

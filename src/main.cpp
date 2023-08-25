@@ -6,8 +6,8 @@
 #include <glm/mat4x4.hpp>
 #include <glm/vec4.hpp>
 
-// Testing purposes
 #include "core/rendering/vulkan_renderer.hpp"
+
 #include "handler/input_handler.hpp"
 
 #include <iostream>
@@ -24,11 +24,12 @@ int main( )
 
     std::cout << extensionCount << " extensions supported\n";
 
+    // For testing purposes
     glm::mat4 matrix;
     glm::vec4 vec;
     const auto test = matrix * vec;
 
-    handler::InputHandler input_handler;
+    handler::InputHandler& input_handler { handler::InputHandler::get( ) };
     input_handler.initialize_handler( window );
 
     while ( !glfwWindowShouldClose( window ) )

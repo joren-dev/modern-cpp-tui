@@ -8,7 +8,7 @@ handler::CommandHandler::CommandHandler( )
 void handler::CommandHandler::initialize_handler( [[maybe_unused]] GLFWwindow* const window )
 {
 
-    std::unique_ptr< commands::BaseCommand >& c_help = m_commands.emplace_back( std::make_unique< HelpCommand >( "Help" ) );
+    std::unique_ptr< commands::BaseCommand >& c_help = m_commands.emplace_back( std::make_unique< commands::HelpCommand >( "Help" ) );
     c_help->add_sub_alias( "h" );
 
     // Add other commands
