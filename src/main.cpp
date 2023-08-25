@@ -3,11 +3,12 @@
 
 #define GLM_FORCE_RADIANS
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
-#include <glm/vec4.hpp>
 #include <glm/mat4x4.hpp>
+#include <glm/vec4.hpp>
 
 // Testing purposes
 #include "core/rendering/vulkan_renderer.hpp"
+#include "handler/input_handler.hpp"
 
 #include <iostream>
 
@@ -27,9 +28,15 @@ int main( )
     glm::vec4 vec;
     const auto test = matrix * vec;
 
+    InputHandler input_handler;
+    input_handler.initialize_handler( window );
+
     while ( !glfwWindowShouldClose( window ) )
     {
+        // Poll for events, including character input events
         glfwPollEvents( );
+
+        input_handler.poll_instructions( );
     }
 
     glfwDestroyWindow( window );

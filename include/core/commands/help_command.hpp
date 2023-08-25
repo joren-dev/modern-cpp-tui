@@ -1,18 +1,20 @@
 #ifndef HELP_COMMAND_HPP
 #define HELP_COMMAND_HPP
 
+#include <iostream>
+
 #include "base_command.hpp"
 
 // Implements help command
-class HelpCommand : BaseCommand
+class HelpCommand : public BaseCommand
 {
   public:
-    HelpCommand( ) = default;
+    // Delete default ctor, to ensure base class ctor is used.
+    HelpCommand( ) = delete;
 
-    void execute() override
-    {
+    HelpCommand( const std::string& main_alias ) : BaseCommand( main_alias ) {}
 
-    }
+    void execute( ) override { std::cout << "Executed help command...\n"; }
 };
 
 #endif /* !HELP_COMMAND_HPP */

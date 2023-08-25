@@ -1,13 +1,15 @@
 #ifndef BASE_COMMAND_HPP
 #define BASE_COMMAND_HPP
 
+#include <algorithm>
+#include <string>
+#include <vector>
 
-// Defines a base for our commands. A command object will only represent what a command does, we dont care if
-// its being copied or moved.
+
 class BaseCommand
 {
   public:
-    BaseCommand( ) = default;
+    BaseCommand( const std::string& main_alias );
 
     BaseCommand( const BaseCommand& ) = default;
     BaseCommand& operator=( const BaseCommand& ) = default;
@@ -18,6 +20,15 @@ class BaseCommand
     virtual void execute( ) = 0;
 
     virtual ~BaseCommand( ) = default;
+
+    void add_sub_alias( const std::string& alias );
+
+    const std::string& get_main_alias( ) const noexcept;
+    const std::vector< std::string > get_all_aliases( ) const;
+
+  private:
+    const std::string m_main_alias;
+    std::vector< std::string > m_sub_aliases;
 };
 
 #endif /* !BASE_COMMAND_HPP */

@@ -12,6 +12,7 @@ BraceWrapping:
   AfterExternBlock: 'true'
   BeforeCatch: 'true'
 
+AllowShortFunctionsOnASingleLine: Empty
 ColumnLimit: 125
 BreakInheritanceList: AfterColon
 CompactNamespaces: 'false'

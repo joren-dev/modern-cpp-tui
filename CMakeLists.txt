@@ -35,7 +35,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 endif()
 
 # Add source files to this project's executable.
-add_executable(tui_client "src/main.cpp")
+add_executable(tui_client "src/main.cpp" "src/handler/input_handler.cpp" "src/handler/command_handler.cpp" "src/core/commands/base_command.cpp" "include/utils/string_utility.hpp")
 
 # Disable GLFW options
 option(GLFW_BUILD_EXAMPLES OFF)
