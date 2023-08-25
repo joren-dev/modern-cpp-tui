@@ -3,7 +3,7 @@
 
 #include <algorithm>
 #include <string>
-#include <vector>
+#include <set>
 
 namespace commands
 {
@@ -25,13 +25,13 @@ namespace commands
         void add_sub_alias( const std::string& alias );
 
         const std::string& get_main_alias( ) const noexcept;
-        const std::vector< std::string > get_all_aliases( ) const noexcept;
+        const std::set< std::string > get_all_aliases( ) const noexcept;
 
       private:
         const char kCommandPrefix { '$' };
 
         const std::string m_main_alias;
-        std::vector< std::string > m_sub_aliases;
+        std::set< std::string > m_sub_aliases;
     };
 } // namespace commands
 

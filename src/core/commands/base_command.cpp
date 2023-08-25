@@ -1,5 +1,7 @@
 #include "core/commands/base_command.hpp"
 
+#include <iostream>
+
 #include "utils/string_utility.hpp"
 
 
@@ -10,7 +12,13 @@ commands::BaseCommand::BaseCommand( const std::string& main_alias )
 
 void commands::BaseCommand::add_sub_alias( const std::string& alias )
 {
-    m_sub_aliases.emplace_back( kCommandPrefix + utility::to_lowercase( alias ) );
+    if ( utility::to_lowercase( alias ) == m_main_alias )
+        std::cout << alias << " has collision with main alias: " << alias << '\n';
+
+    auto insertion_result = m_sub_aliases.insert( kCommandPrefix + utility::to_lowercase( alias ) );
+
+    if ( !insertion_result.second )
+        std::cout << alias << " is a duplicate sub alias\n";
 }
 
 const std::string& commands::BaseCommand::get_main_alias( ) const noexcept
@@ -18,12 +26,15 @@ const std::string& commands::BaseCommand::get_main_alias( ) const noexcept
     return m_main_alias;
 }
 
-const std::vector< std::string > commands::BaseCommand::get_all_aliases( ) const noexcept
+const std::set< std::string > commands::BaseCommand::get_all_aliases( ) const noexcept
 {
-    // TODO: This creates a new vector each time, should just be a member. Fix this.
-    std::vector< std::string > all_aliases;
-    all_aliases.push_back( m_main_alias );
-    all_aliases.insert( all_aliases.end( ), m_sub_aliases.begin( ), m_sub_aliases.end( ) );
+    std::set< std::string > all_aliases;
+
+    // Insert the main alias
+    all_aliases.insert( m_main_alias );
+
+    // Insert all the sub aliases from m_sub_aliases, no need to check for duplicates as add_sub_alias already does.
+    all_aliases.insert( m_sub_aliases.begin( ), m_sub_aliases.end( ) );
 
     return all_aliases;
 }
