@@ -1,7 +1,7 @@
 #ifndef VULKAN_RENDERER_HPP
 #define VULKAN_RENDERER_HPP
 
-// Implements help command
+// Implements renderer
 class VulkanRenderer
 {
   public:
