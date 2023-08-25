@@ -5,16 +5,19 @@
 
 #include "base_command.hpp"
 
-// Implements help command
-class HelpCommand : public BaseCommand
+namespace commands
 {
-  public:
-    // Delete default ctor, to ensure base class ctor is used.
-    HelpCommand( ) = delete;
+    // Implements help command
+    class HelpCommand : public BaseCommand
+    {
+      public:
+        // Delete default ctor, to ensure base class ctor is used.
+        HelpCommand( ) = delete;
 
-    HelpCommand( const std::string& main_alias ) : BaseCommand( main_alias ) {}
+        HelpCommand( const std::string& main_alias );
 
-    void execute( ) override { std::cout << "Executed help command...\n"; }
-};
+        void execute( ) override;
+    };
+} // namespace commands
 
 #endif /* !HELP_COMMAND_HPP */

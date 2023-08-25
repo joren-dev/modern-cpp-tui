@@ -5,20 +5,20 @@
 
 #include "utils/string_utility.hpp"
 
-void InputHandler::initialize_handler( GLFWwindow* const window )
+void handler::InputHandler::initialize_handler( GLFWwindow* const window )
 {
     m_window = window;
     glfwSetCharCallback( window, keystroke_callable );
 }
 
-void InputHandler::keystroke_callable( GLFWwindow* window, unsigned int key )
+void handler::InputHandler::keystroke_callable( GLFWwindow* window, unsigned int key )
 {
     // Convert the key to a character and add it to user_input
     char input_char = static_cast< char >( key );
     m_user_input += input_char;
 }
 
-void InputHandler::poll_instructions( )
+void handler::InputHandler::poll_instructions( )
 {
     for ( auto& [ key, previous_state ] : m_key_states )
     {
@@ -48,7 +48,7 @@ void InputHandler::poll_instructions( )
     }
 }
 
-void InputHandler::process_input( const std::string& input_text )
+void handler::InputHandler::process_input( const std::string& input_text )
 {
     // Check if buffer is empty, while this being called. This happens when enter is pressed for a longer period of time.
     if ( input_text.empty( ) )
@@ -68,7 +68,7 @@ void InputHandler::process_input( const std::string& input_text )
         m_command_handler.invoke_command( command );
 }
 
-std::vector< std::string > InputHandler::extract_commands( const std::string& input_text )
+std::vector< std::string > handler::InputHandler::extract_commands( const std::string& input_text )
 {
     std::vector< std::string > commands;
     std::size_t pos { };
@@ -90,4 +90,4 @@ std::vector< std::string > InputHandler::extract_commands( const std::string& in
 }
 
 // TODO: this is ugly, pls fix. Define and initialize the static member variable
-std::string InputHandler::m_user_input = "";
+std::string handler::InputHandler::m_user_input = "";

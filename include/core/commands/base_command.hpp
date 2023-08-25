@@ -5,30 +5,34 @@
 #include <string>
 #include <vector>
 
-
-class BaseCommand
+namespace commands
 {
-  public:
-    BaseCommand( const std::string& main_alias );
+    class BaseCommand
+    {
+      public:
+        BaseCommand( const std::string& main_alias );
 
-    BaseCommand( const BaseCommand& ) = default;
-    BaseCommand& operator=( const BaseCommand& ) = default;
+        BaseCommand( const BaseCommand& ) = default;
+        BaseCommand& operator=( const BaseCommand& ) = default;
 
-    BaseCommand( BaseCommand&& other ) noexcept = default;
-    BaseCommand& operator=( BaseCommand&& other ) noexcept = default;
+        BaseCommand( BaseCommand&& other ) noexcept = default;
+        BaseCommand& operator=( BaseCommand&& other ) noexcept = default;
 
-    virtual void execute( ) = 0;
+        virtual void execute( ) = 0;
 
-    virtual ~BaseCommand( ) = default;
+        virtual ~BaseCommand( ) = default;
 
-    void add_sub_alias( const std::string& alias );
+        void add_sub_alias( const std::string& alias );
 
-    const std::string& get_main_alias( ) const noexcept;
-    const std::vector< std::string > get_all_aliases( ) const;
+        const std::string& get_main_alias( ) const noexcept;
+        const std::vector< std::string > get_all_aliases( ) const noexcept;
 
-  private:
-    const std::string m_main_alias;
-    std::vector< std::string > m_sub_aliases;
-};
+      private:
+        const char kCommandPrefix { '$' };
+
+        const std::string m_main_alias;
+        std::vector< std::string > m_sub_aliases;
+    };
+} // namespace commands
 
 #endif /* !BASE_COMMAND_HPP */

@@ -28,7 +28,7 @@ int main( )
     glm::vec4 vec;
     const auto test = matrix * vec;
 
-    InputHandler input_handler;
+    handler::InputHandler input_handler;
     input_handler.initialize_handler( window );
 
     while ( !glfwWindowShouldClose( window ) )

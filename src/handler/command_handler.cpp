@@ -1,11 +1,14 @@
 #include "..\..\include\handler\command_handler.hpp"
 
-CommandHandler::CommandHandler( ) { initialize_commands( ); }
+handler::CommandHandler::CommandHandler( )
+{
+    initialize_handler( );
+}
 
-void CommandHandler::initialize_commands( )
+void handler::CommandHandler::initialize_handler( [[maybe_unused]] GLFWwindow* const window )
 {
 
-    std::unique_ptr<BaseCommand>& c_help = m_commands.emplace_back( std::make_unique< HelpCommand >( "Help" ) );
+    std::unique_ptr< commands::BaseCommand >& c_help = m_commands.emplace_back( std::make_unique< HelpCommand >( "Help" ) );
     c_help->add_sub_alias( "h" );
 
     // Add other commands
@@ -13,18 +16,15 @@ void CommandHandler::initialize_commands( )
     // TODO: CHeck if there are any duplicate aliases.
 }
 
-void CommandHandler::invoke_command( const std::string& command )
+void handler::CommandHandler::invoke_command( const std::string& command )
 {
-
-    // Iterate over all commands
-    for ( const auto& c_command : m_commands )
+    for ( const auto& each_command : m_commands )
     {
-        // Gather all aliases
-        for ( const std::string& each : c_command->get_all_aliases( ) )
+        for ( const std::string& each : each_command->get_all_aliases( ) )
         {
-            // If any of them match, execute the command. There should be a duplicate check prior to finishing initialize_commands() so we dont have to break out.
+            // Duplicate check is done in initialize_handler(), so no checks needed
             if ( each == command )
-                c_command->execute( );
+                each_command->execute( );
         }
     }
 }
