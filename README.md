@@ -9,7 +9,7 @@ A Text based User Interface that will contain a collection of tools and utility 
 
 2. Install [Vulkan SDK](https://vulkan.lunarg.com/), make sure to download the version matching `VULKAN_VERSION` in the `CMakeLists.txt` or adjust the variable to whatever version you use.
 
-3. Git clone this project using: `git clone https://github.com/joren-dev/modern-cpp-tui.git`
+3. Git clone this project using: `git clone --recurse-submodules -j8 https://github.com/joren-dev/modern-cpp-tui.git`
 
 
 ## Technical details
