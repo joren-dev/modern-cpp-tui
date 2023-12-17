@@ -11,7 +11,9 @@ A Text based User Interface that will contain a collection of tools and utility 
 
 3. Git clone this project using: `git clone --recurse-submodules -j8 https://github.com/joren-dev/modern-cpp-tui.git`
 
-4. Install dependencies using: `./vcpkg/vcpkg.exe install`
+4. Run the `bootstrap-vcpkg.xxx`
+
+5. Install dependencies using: `./vcpkg/vcpkg.exe install`
 
 
 ## Technical details
