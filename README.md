@@ -7,9 +7,11 @@ A Text based User Interface that will contain a collection of tools and utility 
     - CMake support,
     - Clang Compiler
 
-2. Install [Vulkan SDK](https://vulkan.lunarg.com/), make sure to download the version matching `VULKAN_VERSION` in the `CMakeLists.txt` or adjust the variable to whatever version you use.
+2. Install [Vulkan SDK](https://vulkan.lunarg.com/). Set the `VULKAN_SDK` environment variable to the Vulkan SDK installation directory.
 
 3. Git clone this project using: `git clone --recurse-submodules -j8 https://github.com/joren-dev/modern-cpp-tui.git`
+
+4. Install dependencies using: `./vcpkg/vcpkg.exe install`
 
 
 ## Technical details
