@@ -1,40 +1,49 @@
+AccessModifierOffset: -4
+AllowShortIfStatementsOnASingleLine: 'Never'
+BasedOnStyle: Google
 BreakBeforeBraces: Custom
 BraceWrapping:
-  AfterEnum: 'true'
-  AfterStruct: 'true'
-  SplitEmptyFunction: 'true'
-  AfterCaseLabel: 'true'
-  AfterClass: 'true'
+  AfterCaseLabel: true
+  AfterClass: true
   AfterControlStatement: 'true'
-  AfterFunction: 'true'
-  AfterNamespace: 'true'
-  AfterUnion: 'true'
-  AfterExternBlock: 'true'
-  BeforeCatch: 'true'
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterObjCDeclaration: true
+  AfterStruct: true
+  AfterUnion: true
+  AfterExternBlock: true
+  BeforeCatch: true
+  BeforeElse: true
 
-AllowShortFunctionsOnASingleLine: Empty
-ColumnLimit: 125
+IncludeBlocks: 'Preserve'
+IndentWidth: 4
+ColumnLimit: 150
 BreakInheritanceList: AfterColon
-CompactNamespaces: 'false'
-ConstructorInitializerAllOnOneLineOrOnePerLine: 'true'
-DisableFormat: 'false'
-KeepEmptyLinesAtTheStartOfBlocks: 'true'
+CompactNamespaces: false
+Cpp11BracedListStyle: false
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+DisableFormat: false
+KeepEmptyLinesAtTheStartOfBlocks: true
 Language: Cpp
+FixNamespaceComments: true
 NamespaceIndentation: All
 PointerAlignment: Left
-ReflowComments: 'false'
-SortIncludes: 'true'
-SortUsingDeclarations: 'true'
-SpaceAfterCStyleCast: 'false'
-SpaceAfterLogicalNot: 'false'
-SpaceAfterTemplateKeyword: 'false'
-SpaceBeforeCpp11BracedList: 'true'
-SpaceBeforeCtorInitializerColon: 'true'
-SpaceBeforeInheritanceColon: 'true'
-SpaceBeforeRangeBasedForLoopColon: 'true'
-SpaceInEmptyParentheses: 'true'
-SpacesInAngles: 'true'
-SpacesInCStyleCastParentheses: 'false'
-SpacesInParentheses: 'true'
-SpacesInSquareBrackets: 'true'
-IndentWidth:     4  
+ReflowComments: false
+SortIncludes: 'CaseInsensitive'
+SortUsingDeclarations: true
+SpaceAfterCStyleCast: false
+SpaceAfterLogicalNot: false
+SpaceAfterTemplateKeyword: false
+SpaceBeforeCpp11BracedList: false
+SpaceBeforeCtorInitializerColon: true
+SpaceBeforeInheritanceColon: true
+SpaceBeforeRangeBasedForLoopColon: true
+SpaceInEmptyParentheses: false
+SpacesBeforeTrailingComments: 1
+SpacesInAngles: 'Never'
+SpacesInCStyleCastParentheses: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+SpacesInContainerLiterals: true
+Standard: Latest
